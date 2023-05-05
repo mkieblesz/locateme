@@ -3,6 +3,7 @@
 import type { NextPage } from 'next';
 import { useState } from 'react';
 import InputForm from '../components/InputForm';
+import GoogleHeatMap from '../components/GoogleHeatMap';
 import HeatMap from '../components/HeatMap';
 
 const Home: NextPage = () => {
@@ -10,7 +11,8 @@ const Home: NextPage = () => {
 
   return (
     <div className="h-screen">
-      <HeatMap coordinates={coordinates} />
+      <GoogleHeatMap />
+      {/* <HeatMap coordinates={coordinates} /> */}
       <InputForm setCoordinates={setCoordinates} />
     </div>
   );
