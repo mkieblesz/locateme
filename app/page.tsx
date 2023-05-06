@@ -5,8 +5,10 @@ import { useState } from 'react';
 import InputForm from '../components/InputForm';
 import GoogleHeatMap from '../components/GoogleHeatMap';
 import heatmapData from '../population_galicia.json'
+import ThreeDots from '@/components/ThreeDots';
 const Home: NextPage = () => {
   const [coordinates, setCoordinates] = useState<[number, number][]>(heatmapData as [number, number][]);
+  const [center, setCenter] = useState({ lat: 0, lng: 0 })
   const [data, setData] = useState('')  // [
   //   [52.237049, 21.017532],
   //   [52.237289, 21.019674],
@@ -19,7 +21,7 @@ const Home: NextPage = () => {
     <div className="h-screen flex flex-col">
       <div className="flex-grow grid grid-cols-6">
         <div className="col-span-5">
-          <GoogleHeatMap coordinates={coordinates} />
+          <GoogleHeatMap coordinates={coordinates} center={center} />
         </div>
         <div className="bg-gray-200 col-span-1 p-5">
           <nav className='flex flex-col gap-1 bg-gradient-to-r from-purple-500 to-pink-500 p-2 rounded-lg'>
@@ -38,12 +40,15 @@ const Home: NextPage = () => {
                 {data}
               </p> : ''
             }
-
-
           </div>
         </div>
       </div>
-      <InputForm setCoordinates={setCoordinates} setData={setData} />
+      <InputForm
+        setCoordinates={setCoordinates}
+        setData={setData}
+        setCenter={setCenter}
+      />
+
     </div>
   );
 };

@@ -6,9 +6,10 @@ import axios from 'axios';
 type Props = {
   setCoordinates: (coordinates: [number, number][]) => void;
   setData: any;
+  setCenter: any;
 };
 
-const InputForm: React.FC<Props> = ({ setCoordinates, setData }) => {
+const InputForm: React.FC<Props> = ({ setCoordinates, setData ,setCenter}) => {
   const [textInput, setTextInput] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -17,6 +18,11 @@ const InputForm: React.FC<Props> = ({ setCoordinates, setData }) => {
       // const response = await axios.post('http://localhost:8000', { text: textInput });
       const nameInfo = `The name "Jorge" is a Spanish variant of the name "George" and is commonly used in Spain. It has a strong connection to the country's geographical location as it derives from the Greek name "Georgios," meaning "farmer" or "earthworker." Spain's rich agricultural heritage and diverse landscapes make the name "Jorge" a fitting representation of the country's close ties to the land.`
       setData(nameInfo);
+      const center = {
+        lat: 43.016666,
+        lng: -7.550000,
+      };
+      setCenter(center)
       // setCoordinates(response.data);
 
     } catch (error) {

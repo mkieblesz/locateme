@@ -12,17 +12,18 @@ const containerStyle = {
   height: "calc(100% - 3rem)",
 };
 
-const center = {
-  lat: 43.016666,
-  lng: -7.550000,
-};
+// const center = {
+//   lat: 43.016666,
+//   lng: -7.550000,
+// };
 const zoom = 6;
 
 type Props = {
   coordinates: [number, number][];
+  center: any
 };
 
-function GoogleHeatMap({ coordinates }: Props) {
+function GoogleHeatMap({ coordinates, center }: Props) {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
@@ -36,7 +37,7 @@ function GoogleHeatMap({ coordinates }: Props) {
     map.setZoom(zoom)
 
     setMap(map);
-  }, []);
+  }, [center]);
 
   const onUnmount = React.useCallback(function callback(map: any) {
     setMap(null);
