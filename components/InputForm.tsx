@@ -27,7 +27,7 @@ const InputForm: React.FC<Props> = ({ setCoordinates }) => {
           type="text"
           value={textInput}
           onChange={(e) => setTextInput(e.target.value)}
-          className="flex-grow bg-gray-100 p-2 rounded-md"
+          className="flex-grow bg-gray-300 p-2 rounded-md text-gray-800"
           placeholder="Enter text"
         />
         <button type="submit" className="ml-2 bg-blue-500 text-white px-4 py-2 rounded-md">
