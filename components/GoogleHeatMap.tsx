@@ -49,7 +49,7 @@ function GoogleHeatMap({ coordinates }: Props) {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={6}
+      zoom={8}
       onLoad={onLoad}
       onUnmount={onUnmount}
       options={mapOptions}

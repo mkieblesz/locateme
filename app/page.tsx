@@ -7,7 +7,7 @@ import GoogleHeatMap from '../components/GoogleHeatMap';
 import heatmapData from '../population_galicia.json'
 const Home: NextPage = () => {
   const [coordinates, setCoordinates] = useState<[number, number][]>(heatmapData as [number, number][]);
-  // [
+  const [data, setData] = useState('')  // [
   //   [52.237049, 21.017532],
   //   [52.237289, 21.019674],
   //   [52.235429, 21.015162],
@@ -31,15 +31,19 @@ const Home: NextPage = () => {
             </h1>
             <small className='text-gray-200'>Locate individuals based on their names</small>
           </nav>
-          <hr className='border border-gray-500 my-5'/>
+          <hr className='border border-gray-500 my-5' />
           <div>
-            <p className='my-2 p-4 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500'>
-              With "LocateMe," the process of finding someone becomes seamless and effortless. The app leverages advanced technologies and extensive databases to provide accurate and up-to-date results. Simply enter the name of the person you're looking for, and let "LocateMe" do the rest.
-            </p>
+            {
+              data ? <p className='my-2 p-4 rounded-md bg-gradient-to-r from-cyan-500 to-blue-500'>
+                {data}
+              </p> : ''
+            }
+
+
           </div>
         </div>
       </div>
-      <InputForm setCoordinates={setCoordinates} />
+      <InputForm setCoordinates={setCoordinates} setData={setData} />
     </div>
   );
 };
