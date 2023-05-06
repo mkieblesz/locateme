@@ -50,11 +50,7 @@ function GoogleHeatMap({ coordinates }: Props) {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-<<<<<<< Updated upstream
-      zoom={8}
-=======
       zoom={zoom}
->>>>>>> Stashed changes
       onLoad={onLoad}
       onUnmount={onUnmount}
       options={mapOptions}
