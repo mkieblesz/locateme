@@ -16,6 +16,7 @@ const center = {
   lat: 43.016666,
   lng: -7.550000,
 };
+const zoom = 6;
 
 type Props = {
   coordinates: [number, number][];
@@ -32,7 +33,7 @@ function GoogleHeatMap({ coordinates }: Props) {
 
   const onLoad = React.useCallback(function callback(map: any) {
     const bounds = new window.google.maps.LatLngBounds(center);
-    map.fitBounds(bounds);
+    map.setZoom(zoom)
 
     setMap(map);
   }, []);
@@ -49,7 +50,11 @@ function GoogleHeatMap({ coordinates }: Props) {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
+<<<<<<< Updated upstream
       zoom={8}
+=======
+      zoom={zoom}
+>>>>>>> Stashed changes
       onLoad={onLoad}
       onUnmount={onUnmount}
       options={mapOptions}
