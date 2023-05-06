@@ -1,11 +1,11 @@
 "use client";
-import { darkTheme } from "./dark-theme";
-import React from "react";
 import {
   GoogleMap,
-  useJsApiLoader,
   HeatmapLayer,
+  useJsApiLoader,
 } from "@react-google-maps/api";
+import React from "react";
+import { darkTheme } from "./dark-theme";
 
 const containerStyle = {
   width: "100%",
@@ -24,7 +24,7 @@ type Props = {
 function GoogleHeatMap({ coordinates }: Props) {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "__REPLACE_ME",
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
     libraries: ["visualization"], // Add the 'visualization' library
   });
 
