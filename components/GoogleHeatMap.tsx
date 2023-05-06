@@ -16,14 +16,14 @@ const containerStyle = {
 //   lat: 43.016666,
 //   lng: -7.550000,
 // };
-const zoom = 6;
 
 type Props = {
-  coordinates: [number, number][];
-  center: any
+  coordinates: number[][];
+  center: any;
+  zoom?: number;
 };
 
-function GoogleHeatMap({ coordinates, center }: Props) {
+function GoogleHeatMap({ coordinates, center, zoom }: Props) {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY || "",
@@ -51,7 +51,7 @@ function GoogleHeatMap({ coordinates, center }: Props) {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={zoom}
+      zoom={zoom || 6}
       onLoad={onLoad}
       onUnmount={onUnmount}
       options={mapOptions}
