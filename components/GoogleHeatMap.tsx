@@ -13,8 +13,8 @@ const containerStyle = {
 };
 
 const center = {
-  lat: 52.237049,
-  lng: 21.017532,
+  lat: 43.016666,
+  lng: -7.550000,
 };
 
 type Props = {
@@ -49,7 +49,7 @@ function GoogleHeatMap({ coordinates }: Props) {
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={10}
+      zoom={6}
       onLoad={onLoad}
       onUnmount={onUnmount}
       options={mapOptions}
